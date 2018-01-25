@@ -1,0 +1,62 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<div id="app" class="app flex">
+    <div class="clock">
+        <time class="time">{{timeStr}}</time>
+        <div class="date">{{dateStr}}</div>
+    </div>
+    <div class="weather" v-if="today && now">
+        <div class="temperature-now">{{now.temperature}}°
+        </div>
+        <div>{{now.text}}</div>
+        <div>{{today.low}}° - {{today.high}}°</div>
+    </div>
+</div>
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: #fff;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .app {
+        align-items: center;
+        height: 100%;
+        text-align: center;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .clock,
+    .weather {
+        flex: 1;
+    }
+
+    .clock .time {
+        font-size: 8vw;
+        width: 30vw;
+    }
+
+    .clock .date {
+        font-size: 3vw;
+    }
+
+    .weather {
+        font-size: 3vw;
+    }
+
+    .temperature-now {
+        font-size: 10vw;
+    }
+</style>
+<script src="//cdn.jsdelivr.net/npm/vue"></script>
+<script src="./js/jquery-3.3.1.min.js"></script>
+<script src="./js/hmac-sha1.js"></script>
+<script type="module">
+    import './js/app.js'
+</script>
